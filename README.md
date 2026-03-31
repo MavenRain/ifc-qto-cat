@@ -17,22 +17,21 @@ declaratively and run them against any IFC file.
 ```rust
 use ifc_qto_cat::{run_takeoff, metric::presets};
 
-let content = std::fs::read_to_string("model.ifc")
-    .expect("failed to read IFC file");
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let content = std::fs::read_to_string("model.ifc")?;
 
-let metrics = vec![
-    presets::wall_net_volume(),
-    presets::slab_net_volume(),
-    presets::space_net_floor_area(),
-    presets::door_count(),
-    presets::window_count(),
-];
+    let metrics = vec![
+        presets::wall_net_volume(),
+        presets::slab_net_volume(),
+        presets::space_net_floor_area(),
+        presets::door_count(),
+        presets::window_count(),
+    ];
 
-let report = run_takeoff(content, metrics)
-    .run()
-    .expect("takeoff failed");
-
-println!("{report}");
+    let report = run_takeoff(content, metrics).run()?;
+    println!("{report}");
+    Ok(())
+}
 ```
 
 ## Custom Metrics

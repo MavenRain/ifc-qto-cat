@@ -1,6 +1,6 @@
 [package]
 name = "ifc-qto-cat"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Data-driven quantity takeoffs from IFC models, built on comp-cat-rs"
 license = "MIT OR Apache-2.0"
