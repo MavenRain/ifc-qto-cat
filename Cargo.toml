@@ -1,0 +1,25 @@
+[package]
+name = "ifc-qto-cat"
+version = "0.1.0"
+edition = "2024"
+description = "Data-driven quantity takeoffs from IFC models, built on comp-cat-rs"
+license = "MIT OR Apache-2.0"
+keywords = ["ifc", "bim", "qto", "quantity-takeoff", "aec"]
+categories = ["data-structures", "parsing"]
+
+[dependencies]
+comp-cat-rs = "0.5.0"
+ifc-lite-core-cat = "0.1.1"
+
+[dev-dependencies]
+proptest = "1"
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+needless_pass_by_value = "warn"
+manual_map = "warn"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+cast_precision_loss = "allow"
+module_name_repetitions = "allow"
